@@ -2,7 +2,9 @@
 #'
 #' @param bin_bed A matrix of the BED format. The first three columns are 'chr', "start site", "end site". Each row is a bin region.
 #' @param barcodes A matrix/ data.frame with barcodes for each cell in the first column.
-#' @param path_to_fragments The path to the "fragments.tsv.gz" file with the same format as that from the Cell Ranger software.
+#' @param path_to_matrix The path to the "matrix.mtx" file with the same format as that from the Cell Ranger software.
+#' @param path_to_genes The path to the "genes.tsv" file with the same format as that from the Cell Ranger software.
+#' @param path_to_gtf The path to the gtf file with the same format as that from the Cell Ranger software.
 #' 
 #' @import Matrix
 #' @import data.table
