@@ -7,6 +7,19 @@
 # Param<chr_in>: If the input vcf file with the "chr" labeling
 # Param<chr_out>: If the output vcf files with the "chr" labeling
 
+import argparse
+
+__author__ = 'Chi-Yun Wu'
+
+def process_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-vp','--vcf_path',dest='vcf_path', help='The path to the input vcf file',)
+    parser.add_argument('-od','--out_dir',dest='out_dir', help='The directory path for the output vcf files for chr1-22.',)
+    parser.add_argument('-in','--chr_in',dest='chr_in', help='True/False: if the input vcf file with the "chr" labeling',)
+    parser.add_argument('-out','--chr_out',dest='chr_out', help='True/False: if the output vcf file with the "chr" labeling',)
+    return parser
+
+
 
 def vcf_split(vcf_path= None, out_dir= None, chr_in= True, chr_out=True ):
 
@@ -99,4 +112,14 @@ def vcf_split(vcf_path= None, out_dir= None, chr_in= True, chr_out=True ):
                 ww.write(ll)    
         vcf_chr.to_csv(exportfile, sep='\t', index=None, mode='a')
 
+
+def main(args=None):
+    parser = process_parser()
+    args = parser.parse_args()
+    vcf_split(vcf_path= args.vcf_path, out_dir= args.out_dir, chr_in= args.chr_in, chr_out= args.chr_out )
+    
+
+if __name__ == '__main__':
+    main()
+    
 
