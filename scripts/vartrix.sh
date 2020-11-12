@@ -3,7 +3,9 @@
 # --------------------------------------------------
 # Geneate SNP by cell matrix from the bam file
 # Inputs: vcf file, bam file, fasta file, barcodes.tsv 
-# VarTrix only allows parsing one chromosome in each run. To generate sub-vcf files for each chromosome, you could use this python function: https://github.com/seasoncloud/Basic_CNV_SNV/blob/main/scripts/vcf_sep.py
+# VarTrix only allows parsing one chromosome in each run. 
+# This (python) function can help to generate separate vcf files for each chromosome: 
+# https://github.com/seasoncloud/Basic_CNV_SNV/blob/main/scripts/vcf_sep.py
 # Install VarTrix (https://github.com/10XGenomics/vartrix)
 
 cd ~/
