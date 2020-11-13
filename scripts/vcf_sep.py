@@ -11,17 +11,28 @@ import argparse
 
 __author__ = 'Chi-Yun Wu'
 
+# str2bool function from "https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse"
+def str2bool(v):
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
 def process_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-vp','--vcf_path',dest='vcf_path', help='The path to the input vcf file',)
     parser.add_argument('-od','--out_dir',dest='out_dir', help='The directory path for the output vcf files for chr1-22.',)
-    parser.add_argument('-in','--chr_in',dest='chr_in', help='True/False: if the input vcf file with the "chr" labeling',)
-    parser.add_argument('-out','--chr_out',dest='chr_out', help='True/False: if the output vcf file with the "chr" labeling',)
+    parser.add_argument('-in','--chr_in',dest='chr_in', type=str2bool,nargs='?',const=True,default=True, help='True/False: if the input vcf file with the "chr" labeling',)
+    parser.add_argument('-out','--chr_out',dest='chr_out',type=str2bool,nargs='?',const=True,default=True, help='True/False: if the output vcf file with the "chr" labeling',)
     return parser
 
 
 
-def vcf_split(vcf_path= None, out_dir= None, chr_in= True, chr_out=True ):
+def vcf_split(vcf_path= None, out_dir= None, chr_in= None, chr_out=None ):
 
 # import packages
     import pandas as pd
@@ -33,7 +44,7 @@ def vcf_split(vcf_path= None, out_dir= None, chr_in= True, chr_out=True ):
     vcf_content=[]
 
 
-    with open(vcf_path, mode='r', chr) as vcf:
+    with open(vcf_path, mode='r') as vcf:
         for ll in vcf:
             if(ll[0]=='#' and ll[1]=='#'):
                 if(chr_in==True and chr_out==True):
@@ -84,7 +95,7 @@ def vcf_split(vcf_path= None, out_dir= None, chr_in= True, chr_out=True ):
     df_sub2=df_sub.loc[ df_sub['#CHROM'].isin(chr)]
 
     if(chr_out==True):
-        df_sub2['#CHROM']=['chr' + s for s in nochr]
+        df_sub2['#CHROM']=['chr' + s for s in df_sub2['#CHROM']]
     
 
 
