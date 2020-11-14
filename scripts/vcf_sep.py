@@ -77,7 +77,7 @@ def vcf_split(vcf_path= None, out_dir= None, chr_in= None, chr_out=None ):
     CHROM=df.iloc[:,0].tolist()
     for cc in CHROM:
         if(chr_in==True):
-            ccn=cc.split('hr')[1]
+            ccn=cc.replace('chr',"")
         else:
             ccn=cc
         nochr.append(ccn)
