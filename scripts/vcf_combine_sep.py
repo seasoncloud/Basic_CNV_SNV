@@ -1,5 +1,5 @@
 # --------------------------------------------------
-# The python script combine two vcf files and splits a single vcf file into separate vcf files for chromosome 1 to 22.
+# The python script combines two vcf files (if the two samples will be compared in the downstream analysis) and splits a single vcf file into separate vcf files for chromosome 1 to 22.
 # --------------------------------------------------
 # Geneate SNP by cell matrix from the bam file
 # Param<vcf_path1>: The path to the first vcf file.
