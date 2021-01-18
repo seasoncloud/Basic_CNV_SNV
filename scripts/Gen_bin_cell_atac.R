@@ -2,6 +2,7 @@
 #'
 #' @param bin_bed A matrix of the BED format for fixed bins across the genome (not the bed file for each peak region). 
 #' The first three columns are 'chr', "start site", "end site". Each row is a bin region.
+#' There is a helper function "Generate_bed.R" to help generate this. 
 #' @param barcodes A matrix/ data.frame with barcodes for each cell in the first column.
 #' @param path_to_fragments The path to the "fragments.tsv.gz" file with the same format as that from the Cell Ranger software.
 #' @param out_path The path to save the output matrix.
