@@ -1,12 +1,13 @@
 #' Generate bin by cell matrix for scATAC-seq data
 #'
-#' @param bin_bed A matrix of the BED format. The first three columns are 'chr', "start site", "end site". Each row is a bin region.
+#' @param bin_bed A matrix of the BED format for fixed bins across the genome (not the bed file for each peak region). 
+#' The first three columns are 'chr', "start site", "end site". Each row is a bin region.
 #' @param barcodes A matrix/ data.frame with barcodes for each cell in the first column.
 #' @param path_to_fragments The path to the "fragments.tsv.gz" file with the same format as that from the Cell Ranger software.
 #' @param out_path The path to save the output matrix.
 #' 
 #' @import rtracklayer
-#' @return A Alleloscope object including the necessary information.
+#' @return A bin by cell matrix as the raw_counts input for Alleloscope.
 #'
 #' @export
 ## generate bed files for the bins
