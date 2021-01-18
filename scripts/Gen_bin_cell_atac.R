@@ -35,7 +35,7 @@ Gen_bin_cell_atac=function(bin_bed=NULL, barcodes=NULL, path_to_fragments="./fra
   chr200k=bin_bed
   chr200k=chr200k[which(as.numeric(chr200k[,1]) %in% 1:22),]
   chr200k=chr200k[order(as.numeric(chr200k[,1]), as.numeric(chr200k[,2])),]
-  bins=paste0('chr',chr200k[,1],':',chr200k[,2],"_", chr200k[,3])
+  bins=paste0('chr',chr200k[,1],'-',chr200k[,2],"-", chr200k[,3])
   query=GRanges(paste0('chr',chr200k[,1]), IRanges(chr200k[,2]+1,chr200k[,3]))
   
   ov=findOverlaps(query, fragments_incell )
