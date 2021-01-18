@@ -18,3 +18,5 @@ do
 	mv out_matrix.mtx chr/chr"$chr"_matrix/out_matrix.mtx
 	mv ref_matrix.mtx chr/chr"$chr"_matrix/ref_matrix.mtx
 done
+
+# After the matrices are generated for each chromosome, separated matrices can be combined using the Cbn_matrix.R script.
