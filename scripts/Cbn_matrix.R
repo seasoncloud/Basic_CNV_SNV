@@ -8,12 +8,12 @@
 #' 
 #' export
 # example:Cbn_matrix(dir_path = "./", vcf_path="./vcf_sub/")
-Cbn_matrix=function(dir_path='./',vcf_path='./vcf_sub/',barcodes=NULL, samplename='Sample', plot_stat=TRUE){
+Cbn_matrix=function(dir_path='./',vcf_path='./vcf_sub/',barcodes_path="./barcodes.tsv", samplename='Sample', plot_stat=TRUE){
 ## setting path and name
 vcf_names=list.files(vcf_path)
 vcf_cus=sapply(strsplit(vcf_names,"chr"),'[',1)[1]
 assay='scDNAseq'
-barcode=read.table(paste0(dir_path, "barcodes.tsv"), sep='\t', stringsAsFactors = F)
+barcode=read.table(barcodes_path, sep='\t', stringsAsFactors = F)
 
 ##combine matrices for each chromosome
 alt_all=NULL
