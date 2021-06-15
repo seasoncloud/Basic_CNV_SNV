@@ -6,6 +6,7 @@
 # Param<out_dir>: The directory path for the output vcf files for chr1-22.
 # Param<chr_in>: If the input vcf file with the "chr" labeling
 # Param<chr_out>: If the output vcf files with the "chr" labeling
+# Example: python ~/vcf_sep_mpileup.py -vp ~/sample.vcf -od ~/out_dir/ -in True -out True
 
 import argparse
 
