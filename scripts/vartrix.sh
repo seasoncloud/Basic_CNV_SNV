@@ -5,7 +5,7 @@
 # Inputs: vcf file, bam file, fasta file, barcodes.tsv 
 # VarTrix only allows parsing one chromosome in each run. 
 # This (python) function can help to generate separate vcf files for each chromosome: 
-# https://github.com/seasoncloud/Basic_CNV_SNV/blob/main/scripts/vcf_sep.py
+# https://github.com/seasoncloud/Basic_CNV_SNV/blob/main/scripts/vcf_sep_gatk.py
 # Install VarTrix (https://github.com/10XGenomics/vartrix)
 
 cd ~/
